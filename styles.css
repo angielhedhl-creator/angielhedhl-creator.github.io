@@ -122,7 +122,7 @@ body {
 .hdr-center { text-align: center; }
 .hdr-center h1 {
   margin: 0;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--text-dark);
   line-height: 1.2;
@@ -314,6 +314,44 @@ body {
   padding: var(--sp-md) var(--sp-lg);
   margin-bottom: var(--sp-lg);
   box-shadow: var(--shadow-card);
+  /* Sticky position */
+  position: sticky;
+  top: 63px;
+  z-index: 9999999;
+  transition: all 250ms ease;
+}
+
+/* Estado reducido al hacer scroll */
+.filters.filters--scrolled {
+  padding: 8px var(--sp-lg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-bottom: 2px solid var(--dhl-red);
+}
+
+.filters.filters--scrolled .filters-title {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: inline-block;
+  margin-right: var(--sp-md);
+}
+
+.filters.filters--scrolled .filters-grid {
+  gap: 12px;
+}
+
+.filters.filters--scrolled .filter label {
+  font-size: 10px;
+}
+
+.filters.filters--scrolled .filter select,
+.filters.filters--scrolled .filter input[type="date"] {
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+.filters.filters--scrolled .btn-clear {
+  padding: 4px 12px;
+  font-size: 12px;
 }
 .filters-title {
   font-weight: 700;

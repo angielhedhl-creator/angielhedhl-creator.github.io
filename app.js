@@ -110,6 +110,22 @@ function toast(msg, type = 'ok') {
 document.getElementById('fileInput').addEventListener('change', handleFile);
 document.getElementById('btnClearFilters').addEventListener('click', clearFilters);
 
+// Scroll detection para filtros sticky
+let lastScrollY = 0;
+window.addEventListener('scroll', function() {
+  const filters = document.querySelector('.filters');
+  if (!filters) return;
+  
+  const currentScrollY = window.scrollY;
+  // Activar estado scrolled cuando se ha hecho scroll hacia abajo (más de 50px)
+  if (currentScrollY > 50 && currentScrollY > lastScrollY) {
+    filters.classList.add('filters--scrolled');
+  } else if (currentScrollY <= 50) {
+    filters.classList.remove('filters--scrolled');
+  }
+  lastScrollY = currentScrollY;
+}, { passive: true });
+
 function handleFile(ev) {
   const file = ev.target.files && ev.target.files[0];
   if (!file) return;
